@@ -32,18 +32,16 @@ const Login = () => {
       );
       console.log('Signin successful:', response.data);
       login(response.data.token);
-    } catch (error) {
-      console.error('Login failed:', error);
+    } 
+    catch (error) {
+      // console.error('Login failed:', error);
       Alert.alert('Error', 'Invalid email or password. Please try again.');
     }
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        style={styles.container}
-      >
+
         <ScrollView>
           <View style={styles.imageContainer}>
             <Image
@@ -65,6 +63,8 @@ const Login = () => {
                   onChangeText={setCompanyMail}
                   keyboardType="email-address"
                   autoCapitalize="none"
+                  placeholderTextColor={'black'}
+
                 />
               </View>
 
@@ -77,6 +77,7 @@ const Login = () => {
                     secureTextEntry={!passwordVisible}
                     value={password}
                     onChangeText={setPassword}
+                    placeholderTextColor={'black'}
                   />
                   <TouchableOpacity
                     onPress={() => setPasswordVisible(!passwordVisible)}
@@ -103,7 +104,6 @@ const Login = () => {
             </View>
           </View>
         </ScrollView>
-      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 };
@@ -111,6 +111,7 @@ const Login = () => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'lightblue',
+    height:'100%'
   },
   imageContainer: {
     alignItems: 'center',
@@ -126,6 +127,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 50,
     borderTopRightRadius: 50,
     paddingVertical: 30,
+    height:'100%'
   },
   titleContainer: {
     alignItems: 'center',
@@ -159,6 +161,7 @@ const styles = StyleSheet.create({
   passwordInput: {
     flex: 1,
     fontSize: 18,
+    color:'black'
   },
   icon: {
     width: 25,
@@ -169,7 +172,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   forgotPasswordText: {
-    fontSize: 18,
+    fontSize: 16,
     color: 'blue',
     textDecorationLine: 'underline',
   },

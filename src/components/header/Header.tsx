@@ -13,7 +13,7 @@ const Header :React.FC<HeaderProps> = ({logout}) => {
           flexDirection:'row',
           backgroundColor: '#fff',
           height:60,
-          elevation: 10,
+          elevation: 20,
           alignItems:'center',
           justifyContent:'space-evenly',
         }}>

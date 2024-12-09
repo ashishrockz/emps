@@ -83,5 +83,3 @@ const ComponentNavigation: React.FC<MainProps> = ({ logout }) => {
 };
 
 export default ComponentNavigation;
-
-

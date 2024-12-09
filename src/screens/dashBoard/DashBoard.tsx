@@ -1,18 +1,33 @@
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import Header from '../../components/header/Header'
-interface DashBoardProps {
+import React from 'react';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
+import Header from '../../components/header/Header';
+import List from '../../components/list/List';
+
+interface DashboardProps {
   logout: () => void;
 }
-const DashBoard: React.FC<DashBoardProps> = ({logout}) => {
 
+const Dashboard: React.FC<DashboardProps> = ({ logout }) => {
   return (
-    <SafeAreaView style={{backgroundColor:'#4070f4'}}>
-      <Header logout={logout}/>
+    <SafeAreaView style={styles.safeArea}>
+      <Header logout={logout} />
+      <View style={styles.container}>
+        <List />
+      </View>
     </SafeAreaView>
-  )
-}
+  );
+};
 
-export default DashBoard
+export default Dashboard;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#f5f5f5', // Add a default background color
+  },
+  container: {
+    flex: 1,
+    padding: 10, // Adds padding around the content
+    backgroundColor: '#f1f1f1', // Use a different color for content area if needed
+  },
+});
